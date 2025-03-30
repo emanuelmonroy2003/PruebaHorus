@@ -8,34 +8,49 @@ namespace PruebaHorus.Methods
 {
     class MethodForms1
     {
-       
-        public void GenerarHabitacion(Control control)
+        
+        public void GenerarHabitacion(Control control, Label[] LabelArray,ComboBox comboBox)
         {
-            //llamar a la clase Form1
-             Label[] LabelArray;
-            LabelArray = new Label[150];
-            int[][] habitaciones = new int[][] { [101, 102, 103,104], [201, 202, 203], [301, 302, 303,304],
-                                                 [401,402,403,404,405,406]};
-            int y = 0;
+            //Interativo i= Piso, j= Habitacion
+            int[][] habitaciones = new int[][] { [101, 102, 103], [201, 202, 203], [301, 302, 303,304],
+                                                 [401,402,403,404,405,406],[501,502]};
 
-
-
-
-            for (int i = 0; i < habitaciones.Length; i++)
+            foreach
+                (var item in habitaciones)
             {
-                y = 0;
+                for (int i = 0; i < item.Length; i++)
+                {
+                    comboBox.Items.Add(item[i]);
+                }
+                   
+            }
+
+            int y = 0;
+            int piso = 0;
+            for (int i = habitaciones.Length-1; i >= 0; i--)
+            {
+                
+                y = 0; // Itenrativo para el array labels
                 for (int j = 0; j < habitaciones[i].Length; j++)
                 {
                     
                     LabelArray[y] = new Label();
+                    LabelArray[y].Name = $"Label{habitaciones[i][j].ToString()}";
                     LabelArray[y].Text = $"{habitaciones[i][j]}";
-                    LabelArray[y].Location = new System.Drawing.Point(50 * y, 30 *i); // Posición en el formulario
+                    LabelArray[y].Location = new System.Drawing.Point(50 * y, 30 *piso); // Posición en el formulario
                     LabelArray[y].AutoSize = true;
                     control.Controls.Add(LabelArray[y]); // Agregar a la Ventana Form1
                     y++;
                 }
+                piso++;
 
             }
         }
+        public void ModificarHabitacion()
+        {
+            //Modificar habitación
+           
+        }
     }
+
 }
