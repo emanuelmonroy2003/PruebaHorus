@@ -1,56 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PruebaHorus.Methods
+﻿namespace PruebaHorus.Methods
 {
     class MethodForms1
     {
-        
-        public void GenerarHabitacion(Control control, Label[] LabelArray,ComboBox comboBox)
+
+        public static void GenerarHabitacion(Control control, Label[] LabelArray, ComboBox comboBox)
         {
-            //Interativo i= Piso, j= Habitacion
-            int[][] habitaciones = new int[][] { [101, 102, 103], [201, 202, 203], [301, 302, 303,304],
-                                                 [401,402,403,404,405,406],[501,502]};
+            // Interativo i = Piso, j = Habitacion
 
-            foreach
-                (var item in habitaciones)
-            {
-                for (int i = 0; i < item.Length; i++)
-                {
-                    comboBox.Items.Add(item[i]);
-                }
-                   
-            }
+            int[][] hotelRoomsPerFloor = [
+                [101, 102, 103],
+                [201, 202, 203],
+                [301, 302, 303,304],
+                [401, 402, 403, 404, 405, 406],
+                [501, 502]
+            ];
 
-            int y = 0;
+            foreach (int[] roomsOnFloor in hotelRoomsPerFloor)
+                foreach (int roomNumber in roomsOnFloor)
+                    comboBox.Items.Add(roomNumber);
+
             int piso = 0;
-            for (int i = habitaciones.Length-1; i >= 0; i--)
+
+            for (int floorIndex = hotelRoomsPerFloor.Length - 1; floorIndex >= 0; floorIndex--)
             {
-                
-                y = 0; // Itenrativo para el array labels
-                for (int j = 0; j < habitaciones[i].Length; j++)
+                int y = 0; // Itenrativo para el array labels
+
+                foreach (int roomNumber in hotelRoomsPerFloor[floorIndex])
                 {
-                    
-                    LabelArray[y] = new Label();
-                    LabelArray[y].Name = $"Label{habitaciones[i][j].ToString()}";
-                    LabelArray[y].Text = $"{habitaciones[i][j]}";
-                    LabelArray[y].Location = new System.Drawing.Point(50 * y, 30 *piso); // Posición en el formulario
-                    LabelArray[y].AutoSize = true;
+                    LabelArray[y] = new()
+                    {
+                        Name = $"Label{roomNumber}",
+                        Text = $"{roomNumber}",
+                        Location = new Point(50 * y, 30 * piso), // Posición en el formulario
+                        AutoSize = true
+                    };
+
                     control.Controls.Add(LabelArray[y]); // Agregar a la Ventana Form1
                     y++;
                 }
-                piso++;
 
+                piso++;
             }
         }
-        public void ModificarHabitacion()
-        {
-            //Modificar habitación
-           
-        }
+
+        // Modificar habitación
+        public void ModificarHabitacion() { }
     }
 
 }
