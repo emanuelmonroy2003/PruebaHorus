@@ -1,23 +1,29 @@
-﻿namespace PruebaHorus.Methods
+﻿using System.ComponentModel;
+
+namespace PruebaHorus.Methods
 {
-    class MethodForms1
+    class MethodFormsHabitaciones
     {
 
-        public static void GenerarHabitacion(Control control, Label[] LabelArray, ComboBox comboBox)
+        public static void GenerarHabitacion(Control control, Label[] LabelArray)
         {
             // Interativo i = Piso, j = Habitacion
 
-            int[][] hotelRoomsPerFloor = [
-                [101, 102, 103],
-                [201, 202, 203],
-                [301, 302, 303,304],
-                [401, 402, 403, 404, 405, 406],
-                [501, 502]
-            ];
-
-            foreach (int[] roomsOnFloor in hotelRoomsPerFloor)
-                foreach (int roomNumber in roomsOnFloor)
-                    comboBox.Items.Add(roomNumber);
+             int[][] hotelRoomsPerFloor = {[101, 102, 103],
+                  [201, 202, 203],
+                  [301, 302, 303,304],
+                  [401, 402, 403, 404, 405, 406],
+                  [501, 502],
+                  [601,602,603,604,605]}
+                  
+              ;
+           
+            if (hotelRoomsPerFloor == null) {
+                MessageBox.Show("No hay habitaciones Creadas");
+                return;
+            }
+            
+           
 
             int piso = 0;
 
@@ -43,8 +49,9 @@
             }
         }
 
-        // Modificar habitación
-        public void ModificarHabitacion() { }
+
+     
+
     }
 
 }
