@@ -52,9 +52,14 @@ namespace PruebaHorus
 
         private void buttonGuardarTipo_Click(object sender, EventArgs e)
         {
-          
+
             methodFormCrearHabitaciones.CrearTipoHabitacion(textAñadirTipo, labelNombreTipo,
-                                                            buttonGuardarTipo, buttonCerrarTipo);
+                                                            buttonGuardarTipo, buttonCerrarTipo, comboBoxTipo);
+        }
+
+        private void buttonCrearHab_Click(object sender, EventArgs e)
+        {
+            methodFormCrearHabitaciones.CrearHabitacion(textBoxNumHab, textBoxNumPiso, comboBoxTipo, "Libre");
         }
     }
 }

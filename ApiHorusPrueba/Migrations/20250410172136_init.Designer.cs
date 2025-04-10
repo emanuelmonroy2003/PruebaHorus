@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiHorusPrueba.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250410041745_initial")]
-    partial class initial
+    [Migration("20250410172136_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

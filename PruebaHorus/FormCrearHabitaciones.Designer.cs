@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            textBoxNumHab = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox3 = new TextBox();
+            textBoxNumPiso = new TextBox();
             comboBoxTipo = new ComboBox();
             label3 = new Label();
-            button1 = new Button();
+            buttonCrearHab = new Button();
             labelAñadir = new Label();
             label4 = new Label();
             textAñadirTipo = new TextBox();
@@ -43,71 +43,76 @@
             buttonGuardarTipo = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // textBoxNumHab
             // 
-            textBox1.Location = new Point(132, 65);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(205, 23);
-            textBox1.TabIndex = 0;
+            textBoxNumHab.Location = new Point(151, 82);
+            textBoxNumHab.Margin = new Padding(3, 4, 3, 4);
+            textBoxNumHab.Name = "textBoxNumHab";
+            textBoxNumHab.Size = new Size(234, 26);
+            textBoxNumHab.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(31, 73);
+            label1.Location = new Point(35, 92);
             label1.Name = "label1";
-            label1.Size = new Size(95, 15);
+            label1.Size = new Size(108, 19);
             label1.TabIndex = 4;
             label1.Text = "Num Habitacion";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(97, 113);
+            label2.Location = new Point(111, 143);
             label2.Name = "label2";
-            label2.Size = new Size(29, 15);
+            label2.Size = new Size(34, 19);
             label2.TabIndex = 5;
             label2.Text = "Piso";
             // 
-            // textBox3
+            // textBoxNumPiso
             // 
-            textBox3.Location = new Point(132, 105);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(205, 23);
-            textBox3.TabIndex = 9;
+            textBoxNumPiso.Location = new Point(151, 133);
+            textBoxNumPiso.Margin = new Padding(3, 4, 3, 4);
+            textBoxNumPiso.Name = "textBoxNumPiso";
+            textBoxNumPiso.Size = new Size(234, 26);
+            textBoxNumPiso.TabIndex = 9;
             // 
             // comboBoxTipo
             // 
             comboBoxTipo.FormattingEnabled = true;
-            comboBoxTipo.Location = new Point(132, 143);
+            comboBoxTipo.Location = new Point(151, 181);
+            comboBoxTipo.Margin = new Padding(3, 4, 3, 4);
             comboBoxTipo.Name = "comboBoxTipo";
-            comboBoxTipo.Size = new Size(121, 23);
+            comboBoxTipo.Size = new Size(138, 27);
             comboBoxTipo.TabIndex = 10;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(34, 151);
+            label3.Location = new Point(39, 191);
             label3.Name = "label3";
-            label3.Size = new Size(92, 15);
+            label3.Size = new Size(104, 19);
             label3.TabIndex = 11;
             label3.Text = "Tipo Habitacion";
             // 
-            // button1
+            // buttonCrearHab
             // 
-            button1.Location = new Point(132, 185);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 24);
-            button1.TabIndex = 12;
-            button1.Text = "Crear";
-            button1.UseVisualStyleBackColor = true;
+            buttonCrearHab.Location = new Point(151, 234);
+            buttonCrearHab.Margin = new Padding(3, 4, 3, 4);
+            buttonCrearHab.Name = "buttonCrearHab";
+            buttonCrearHab.Size = new Size(86, 30);
+            buttonCrearHab.TabIndex = 12;
+            buttonCrearHab.Text = "Crear";
+            buttonCrearHab.UseVisualStyleBackColor = true;
+            buttonCrearHab.Click += buttonCrearHab_Click;
             // 
             // labelAñadir
             // 
             labelAñadir.AutoSize = true;
             labelAñadir.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelAñadir.Location = new Point(259, 143);
+            labelAñadir.Location = new Point(296, 181);
             labelAñadir.Name = "labelAñadir";
-            labelAñadir.Size = new Size(61, 21);
+            labelAñadir.Size = new Size(72, 25);
             labelAñadir.TabIndex = 13;
             labelAñadir.Text = "Añadir";
             labelAñadir.DoubleClick += labelAñadir_DoubleClick;
@@ -118,35 +123,37 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft JhengHei", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(72, 9);
+            label4.Location = new Point(82, 11);
             label4.Name = "label4";
-            label4.Size = new Size(232, 35);
+            label4.Size = new Size(268, 39);
             label4.TabIndex = 14;
             label4.Text = "Crear Habitacion";
             // 
             // textAñadirTipo
             // 
-            textAñadirTipo.Location = new Point(259, 186);
+            textAñadirTipo.Location = new Point(296, 236);
+            textAñadirTipo.Margin = new Padding(3, 4, 3, 4);
             textAñadirTipo.Name = "textAñadirTipo";
-            textAñadirTipo.Size = new Size(100, 23);
+            textAñadirTipo.Size = new Size(114, 26);
             textAñadirTipo.TabIndex = 15;
             textAñadirTipo.Visible = false;
             // 
             // labelNombreTipo
             // 
             labelNombreTipo.AutoSize = true;
-            labelNombreTipo.Location = new Point(259, 168);
+            labelNombreTipo.Location = new Point(296, 213);
             labelNombreTipo.Name = "labelNombreTipo";
-            labelNombreTipo.Size = new Size(78, 15);
+            labelNombreTipo.Size = new Size(89, 19);
             labelNombreTipo.TabIndex = 16;
             labelNombreTipo.Text = "Nombre Tipo";
             labelNombreTipo.Visible = false;
             // 
             // buttonCerrarTipo
             // 
-            buttonCerrarTipo.Location = new Point(274, 215);
+            buttonCerrarTipo.Location = new Point(313, 272);
+            buttonCerrarTipo.Margin = new Padding(3, 4, 3, 4);
             buttonCerrarTipo.Name = "buttonCerrarTipo";
-            buttonCerrarTipo.Size = new Size(76, 23);
+            buttonCerrarTipo.Size = new Size(87, 29);
             buttonCerrarTipo.TabIndex = 17;
             buttonCerrarTipo.Text = "Cerrar";
             buttonCerrarTipo.UseVisualStyleBackColor = true;
@@ -155,9 +162,10 @@
             // 
             // buttonGuardarTipo
             // 
-            buttonGuardarTipo.Location = new Point(274, 240);
+            buttonGuardarTipo.Location = new Point(313, 304);
+            buttonGuardarTipo.Margin = new Padding(3, 4, 3, 4);
             buttonGuardarTipo.Name = "buttonGuardarTipo";
-            buttonGuardarTipo.Size = new Size(76, 23);
+            buttonGuardarTipo.Size = new Size(87, 29);
             buttonGuardarTipo.TabIndex = 18;
             buttonGuardarTipo.Text = "Guardar";
             buttonGuardarTipo.UseVisualStyleBackColor = true;
@@ -166,22 +174,23 @@
             // 
             // FormCrearHabitaciones
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(390, 277);
+            ClientSize = new Size(446, 351);
             Controls.Add(buttonGuardarTipo);
             Controls.Add(buttonCerrarTipo);
             Controls.Add(labelNombreTipo);
             Controls.Add(textAñadirTipo);
             Controls.Add(label4);
             Controls.Add(labelAñadir);
-            Controls.Add(button1);
+            Controls.Add(buttonCrearHab);
             Controls.Add(label3);
             Controls.Add(comboBoxTipo);
-            Controls.Add(textBox3);
+            Controls.Add(textBoxNumPiso);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxNumHab);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormCrearHabitaciones";
             Text = "Form2";
             ResumeLayout(false);
@@ -190,13 +199,13 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox textBoxNumHab;
         private Label label1;
         private Label label2;
-        private TextBox textBox3;
+        private TextBox textBoxNumPiso;
         private ComboBox comboBoxTipo;
         private Label label3;
-        private Button button1;
+        private Button buttonCrearHab;
         private Label labelAñadir;
         private Label label4;
         private TextBox textAñadirTipo;

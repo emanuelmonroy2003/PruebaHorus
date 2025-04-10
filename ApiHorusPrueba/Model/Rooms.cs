@@ -17,17 +17,17 @@ namespace ApiHorusPrueba.Model
         public virtual RoomType RoomType { get; set; }
 
         public string RoomStatus { get; set; } = string.Empty;
-                 
+
+
+
+
+
+        public override string ToString()
+        {
+            return $"Habitacion: {NumRoom}" +
+                $", Piso: {NumFloor}" +
+                $", Tipo: {RoomType}" +
+                $", Estado: {RoomStatus}";
+        }
     }
 }
-
-// hacer un ToString para mostrar el nombre de la habitacion
-/* public override string ToString()
-     {
-         return $"Habitacion: {NumRoom}" +
-             $", Piso: {NumFloor}" +
-             $", Tipo: {RoomType}" +
-             $", Estado: {RoomStatus}";
-     }
- }
-*/
