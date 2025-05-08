@@ -1,4 +1,4 @@
-using PruebaHorus.Methods;
+
 
 namespace PruebaHorus
 {
@@ -9,7 +9,7 @@ namespace PruebaHorus
         public Form1()
         {
             InitializeComponent();
-            MethodFormsHabitaciones.GenerarHabitacion(this, _label_array);
+           
         }
 
         private void Form1_Load(object sender, EventArgs e) { }

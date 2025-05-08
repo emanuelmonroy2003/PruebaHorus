@@ -9,17 +9,26 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PruebaHorus.Methods;
+using PruebaHorus.ModelForms;
 
 namespace PruebaHorus
 {
     public partial class FormCrearHabitaciones : Form
     {
-        MethodFormCrearHabitaciones methodFormCrearHabitaciones = new MethodFormCrearHabitaciones();
+      
         public FormCrearHabitaciones()
         {
             InitializeComponent();
-            methodFormCrearHabitaciones.LlenarComboBox(comboBoxTipo);
+            comboBoxTipo.Items.Clear();
+            RoomType roomType = new RoomType();
+            Task<List<RoomType>> task =  roomType.GetRoomTypes();
+
+            foreach (var Type in task)
+            {
+                comboBoxTipo.Items.Add(Type);
+            }
+
+
 
         }
 
@@ -52,14 +61,21 @@ namespace PruebaHorus
 
         private void buttonGuardarTipo_Click(object sender, EventArgs e)
         {
+            RoomType roomType = new RoomType();
+            if (!string.IsNullOrEmpty(textAñadirTipo.Text))
+            { 
+                roomType.CreateType(textAñadirTipo.Text);
+            }
+            else
+            {
+                MessageBox.Show("El campo no puede estar vacio");
+            }
 
-            methodFormCrearHabitaciones.CrearTipoHabitacion(textAñadirTipo, labelNombreTipo,
-                                                            buttonGuardarTipo, buttonCerrarTipo, comboBoxTipo);
         }
 
         private void buttonCrearHab_Click(object sender, EventArgs e)
         {
-            methodFormCrearHabitaciones.CrearHabitacion(textBoxNumHab, textBoxNumPiso, comboBoxTipo, "Libre");
+           
         }
     }
 }

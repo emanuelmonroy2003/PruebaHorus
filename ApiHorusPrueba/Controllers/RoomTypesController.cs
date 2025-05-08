@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ApiHorusPrueba.Context;
 using ApiHorusPrueba.Model;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ApiHorusPrueba.Controllers
 {
@@ -76,25 +77,21 @@ namespace ApiHorusPrueba.Controllers
         // POST: api/RoomTypes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<RoomType>> PostRoomType(RoomType roomType)
+        public async Task <ActionResult<RoomType>> PostRoomType(RoomType roomType)
         {
-            // Check if the room type already exists
-            var existingRoomType = await _context.RoomTypes.FirstOrDefaultAsync(rt => rt.Type == roomType.Type);
-
-            if (existingRoomType != null)
+            var query = _context.RoomTypes.Where(x => x.Type == roomType.Type);
+            if (query.IsNullOrEmpty())
             {
-                
-                return Conflict(new { message = "El Tipo Ya Existe!" });
+                _context.RoomTypes.Add(roomType);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetRoomType", new { id = roomType.IdRoomType }, roomType);
             }
-
-       
-
-            _context.RoomTypes.Add(roomType);
-            await _context.SaveChangesAsync();
-
-
-
-            return CreatedAtAction("GetRoomType", new { id = roomType.IdRoomType }, roomType);
+            else
+            {
+                Console.WriteLine("*****************************\nYa existe\n*****************************");
+                return BadRequest($"ya existe{roomType.Type}");
+            }
+          
         }
 
         // DELETE: api/RoomTypes/5

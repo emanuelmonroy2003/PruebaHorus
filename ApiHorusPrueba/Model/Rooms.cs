@@ -7,27 +7,12 @@ namespace ApiHorusPrueba.Model
     {
         [Key]
         public int IdRooms { get; set; }
-
-        [ForeignKey("RoomType")]
-        public int IdRoomType { get; set; }
-
+        [ForeignKey ("RoomTypeId") ]
+        public int RoomTypeId { get; set; }
         public int NumRoom { get; set; }
         public int NumFloor { get; set; }
-
-        public virtual RoomType RoomType { get; set; }
-
         public string RoomStatus { get; set; } = string.Empty;
+        
 
-
-
-
-
-        public override string ToString()
-        {
-            return $"Habitacion: {NumRoom}" +
-                $", Piso: {NumFloor}" +
-                $", Tipo: {RoomType}" +
-                $", Estado: {RoomStatus}";
-        }
     }
 }

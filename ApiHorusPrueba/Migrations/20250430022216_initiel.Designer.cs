@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiHorusPrueba.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250410172136_init")]
-    partial class init
+    [Migration("20250430022216_initiel")]
+    partial class initiel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,9 +49,6 @@ namespace ApiHorusPrueba.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRooms"));
 
-                    b.Property<int>("IdRoomType")
-                        .HasColumnType("int");
-
                     b.Property<int>("NumFloor")
                         .HasColumnType("int");
 
@@ -62,27 +59,12 @@ namespace ApiHorusPrueba.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("RoomTypeId")
+                        .HasColumnType("int");
+
                     b.HasKey("IdRooms");
 
-                    b.HasIndex("IdRoomType");
-
                     b.ToTable("Rooms");
-                });
-
-            modelBuilder.Entity("ApiHorusPrueba.Model.Rooms", b =>
-                {
-                    b.HasOne("ApiHorusPrueba.Model.RoomType", "RoomType")
-                        .WithMany("Rooms")
-                        .HasForeignKey("IdRoomType")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RoomType");
-                });
-
-            modelBuilder.Entity("ApiHorusPrueba.Model.RoomType", b =>
-                {
-                    b.Navigation("Rooms");
                 });
 #pragma warning restore 612, 618
         }
